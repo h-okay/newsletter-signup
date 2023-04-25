@@ -26,9 +26,9 @@ app.post("/", (req, res) => {
             }
         }]
     }).then(() => {
-        res.sendFile(`${__dirname}/success.html`)
+        res.sendFile('success.html', { root: __dirname })
     }).catch(() => {
-        res.sendFile(`${__dirname}/failure.html`)
+        res.sendFile('failure.html', { root: __dirname })
     }
     )
 })
