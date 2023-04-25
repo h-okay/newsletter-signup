@@ -33,12 +33,12 @@ app.post("/", (req, res) => {
     )
 })
 
+app.post("/failure", (_, res) => {
+    res.redirect("/")
+})
 
-app.get("/success", (_, res) => {
-    res.sendFile(`${__dirname}/success.html`)
-    setTimeout(() => {
-        res.redirect("/")
-    }, 3000)
+app.post("/success", (_, res) => {
+    res.redirect("/")
 })
 
 app.listen(3000)
