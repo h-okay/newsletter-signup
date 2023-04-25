@@ -1,9 +1,6 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const app = require('express')();
 const mailchimp = require("@mailchimp/mailchimp_marketing");
-const app = express();
-
-app.use(express.static("public"));
+const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }))
 
 mailchimp.setConfig({
@@ -44,4 +41,4 @@ app.post("/api/success", (_, res) => {
     res.redirect("/api")
 })
 
-app.listen(3000)
+module.exports = app;
