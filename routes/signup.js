@@ -23,9 +23,9 @@ router.post("/", (req, res) => {
             }
         }]
     }).then(() => {
-        res.sendFile("success.html", { root: path.join(__dirname, 'public') })
+        res.sendFile("success.html", { root: "../" })
     }).catch(() => {
-        res.sendFile("failure.html", { root: path.join(__dirname, 'public') })
+        res.sendFile("failure.html", { root: "../" })
     }
     )
 })
@@ -33,7 +33,7 @@ router.post("/", (req, res) => {
 router.get("/", (_, res) => {
     res.setHeader('Content-Type', 'text/html')
     res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
-    res.sendFile("public/signup.html", { root: path.join(__dirname, 'public') })
+    res.sendFile("public/signup.html", { root: "../" })
 })
 
 module.exports = router;
