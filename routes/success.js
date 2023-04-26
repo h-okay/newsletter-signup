@@ -7,7 +7,7 @@ router.post("/", (_, res) => {
 })
 
 router.get("/", (_, res) => {
-    res.sendFile("success.html", { root: "../" })
+    res.sendFile(path.join(process.cwd(), 'public', 'success.html'))
 })
 
 module.exports = router;
