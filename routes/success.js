@@ -6,7 +6,7 @@ router.post("/", (_, res) => {
 })
 
 router.get("/", (_, res) => {
-    res.sendFile("public/success.html")
+    res.sendFile("public/success.html", { root: __dirname })
 })
 
 module.exports = router;
