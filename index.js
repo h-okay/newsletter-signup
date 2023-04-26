@@ -5,6 +5,7 @@ const failure = require('./routes/failure.js');
 const success = require('./routes/success.js');
 const PORT = process.env.PORT || 3000;
 
+app.use(express.static("public"));
 app.use("/signup", signup);
 app.use("/failure", failure);
 app.use("/success", success);
