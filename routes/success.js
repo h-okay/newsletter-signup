@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 
 router.post("/", (_, res) => {
@@ -6,7 +7,7 @@ router.post("/", (_, res) => {
 })
 
 router.get("/", (_, res) => {
-    res.sendFile("public/success.html", { root: "./" })
+    res.sendFile("success.html", { root: path.join(__dirname, 'public') })
 })
 
 module.exports = router;

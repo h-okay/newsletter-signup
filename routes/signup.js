@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 const bodyParser = require("body-parser");
@@ -22,10 +23,9 @@ router.post("/", (req, res) => {
             }
         }]
     }).then(() => {
-        res.sendFile("public/success.html", { root: "./" })
-        
+        res.sendFile("success.html", { root: path.join(__dirname, 'public') })
     }).catch(() => {
-        res.sendFile("public/failure.html", { root: "./" })
+        res.sendFile("failure.html", { root: path.join(__dirname, 'public') })
     }
     )
 })
@@ -33,7 +33,7 @@ router.post("/", (req, res) => {
 router.get("/", (_, res) => {
     res.setHeader('Content-Type', 'text/html')
     res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
-    res.sendFile("public/signup.html", { root: "./" })
+    res.sendFile("public/signup.html", { root: path.join(__dirname, 'public') })
 })
 
 module.exports = router;
